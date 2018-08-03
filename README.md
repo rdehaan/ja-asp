@@ -59,6 +59,9 @@ js(11..17,(-i1;-i2;i3;-i4;-i5)).
 
 #### Rules with standard encodings
 
+For the following encodings of judgment aggregation rules, one needs to enumerate
+all answer sets to get all outcomes:
+
 ```
 windet/majority.lp
 windet/msa.lp
@@ -77,6 +80,9 @@ Yet another example, invoking meta-programming, where possible duplicate answer 
 `clingo ja.lp windet/windet.lp windet/msa.lp examples/profiles/profile1.lp --pre | reify | clingo - meta.lp metaD.lp metaO.lp -Wno-atom-undefined --project 0`
 
 #### Rules with optimization encodings
+
+For the following encodings of judgment aggregation rules, one needs to enumerate
+all *optimal* answer sets to get all outcomes:
 
 ```
 windet/kemeny1-opt.lp
@@ -98,6 +104,12 @@ Example:
 `clingo ja.lp windet/windet.lp windet/kemeny1-opt.lp examples/profiles/profile1.lp --opt-mode=optN`
 
 #### Rules with meta-programming encodings
+
+The following encodings of judgment aggregation rules
+are based on meta-programming techniques.
+For these encodings, one needs to use `reify`, `meta.lp`,
+`metaD.lp` and `metaO.lp`,
+and one needs to enumerate all answer sets to get all outcomes:
 
 ```
 windet/kemeny-meta.lp
