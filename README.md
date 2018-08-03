@@ -70,14 +70,22 @@ windet/ra.lp
 ```
 
 General use:
-`clingo ja.lp windet/windet.lp windet/*[rule]*-opt.lp *[profile]*.lp -n 0`
+```
+clingo ja.lp windet/windet.lp windet/*[rule]*-opt.lp *[profile]*.lp -n 0
+```
 
 Example:
-`clingo ja.lp windet/windet.lp windet/msa.lp examples/profiles/profile1.lp -n 0`
+```
+clingo ja.lp windet/windet.lp windet/msa.lp examples/profiles/profile1.lp -n 0
+```
 Another example:
-`clingo ja.lp windet/windet.lp windet/quota.lp examples/profiles/profile0.lp <(echo "#const quota=2.") -n 0`
+```
+clingo ja.lp windet/windet.lp windet/quota.lp examples/profiles/profile0.lp <(echo "#const quota=2.") -n 0
+```
 Yet another example, invoking meta-programming, where possible duplicate answer sets are removed:
-`clingo ja.lp windet/windet.lp windet/msa.lp examples/profiles/profile1.lp --pre | reify | clingo - meta.lp metaD.lp metaO.lp -Wno-atom-undefined --project 0`
+```
+clingo ja.lp windet/windet.lp windet/msa.lp examples/profiles/profile1.lp --pre | reify | clingo - meta.lp metaD.lp metaO.lp -Wno-atom-undefined --project 0
+```
 
 #### Rules with optimization encodings
 
@@ -98,10 +106,14 @@ windet/young-opt.lp
 ```
 
 General use:
-`clingo ja.lp windet/windet.lp windet/*[rule]*-opt.lp *[profile]*.lp --opt-mode=optN`
+```
+clingo ja.lp windet/windet.lp windet/*[rule]*-opt.lp *[profile]*.lp --opt-mode=optN
+```
 
 Example:
-`clingo ja.lp windet/windet.lp windet/kemeny1-opt.lp examples/profiles/profile1.lp --opt-mode=optN`
+```
+clingo ja.lp windet/windet.lp windet/kemeny1-opt.lp examples/profiles/profile1.lp --opt-mode=optimization
+```
 
 #### Rules with meta-programming encodings
 
@@ -119,36 +131,56 @@ windet/slater-meta.lp
 ```
 
 General use:
-`clingo ja.lp windet/windet.lp windet/*[rule]*-meta.lp *[profile]*.lp --pre | reify | clingo - meta.lp metaD.lp metaO.lp -Wno-atom-undefined --project 0`
+```
+clingo ja.lp windet/windet.lp windet/*[rule]*-meta.lp *[profile]*.lp --pre | reify | clingo - meta.lp metaD.lp metaO.lp -Wno-atom-undefined --project 0
+```
 
 Example:
-`clingo ja.lp windet/windet.lp windet/msa-meta.lp examples/profiles/profile1.lp --pre | reify | clingo - meta.lp metaD.lp metaO.lp -Wno-atom-undefined --project 0`
+```
+clingo ja.lp windet/windet.lp windet/msa-meta.lp examples/profiles/profile1.lp --pre | reify | clingo - meta.lp metaD.lp metaO.lp -Wno-atom-undefined --project 0
+```
 
 ### Checking agenda properties
 
 #### Median property
 Example:
-`clingo ja.lp agenda-properties/mp.lp examples/profiles/profile1.lp -n 0`
+```
+clingo ja.lp agenda-properties/mp.lp examples/profiles/profile1.lp -n 0
+```
 Another example, invoking meta-programming, where possible duplicate answer sets are removed:
-`clingo ja.lp agenda-properties/mp.lp examples/profiles/profile1.lp --pre | reify | clingo - meta.lp metaD.lp metaO.lp -Wno-atom-undefined --project 0`
+```
+clingo ja.lp agenda-properties/mp.lp examples/profiles/profile1.lp --pre | reify | clingo - meta.lp metaD.lp metaO.lp -Wno-atom-undefined --project 0
+```
 
 #### k-Median property
 Example:
-`clingo ja.lp agenda-properties/k-mp.lp examples/profiles/profile1.lp <(echo "#const k=2.") -n 0`
+```
+clingo ja.lp agenda-properties/k-mp.lp examples/profiles/profile1.lp <(echo "#const k=2.") -n 0
+```
 Another example, invoking meta-programming, where possible duplicate answer sets are removed:
-`clingo ja.lp agenda-properties/k-mp.lp examples/profiles/profile1.lp <(echo "#const k=2.") --pre | reify | clingo - meta.lp metaD.lp metaO.lp -Wno-atom-undefined --project 0`
+```
+clingo ja.lp agenda-properties/k-mp.lp examples/profiles/profile1.lp <(echo "#const k=2.") --pre | reify | clingo - meta.lp metaD.lp metaO.lp -Wno-atom-undefined --project 0
+```
 
 #### Separation
 Example:
-`clingo ja.lp agenda-properties/separation.lp examples/profiles/profile1.lp -n 0`
+```
+clingo ja.lp agenda-properties/separation.lp examples/profiles/profile1.lp -n 0
+```
 Another example, invoking meta-programming, where possible duplicate answer sets are removed:
-`clingo ja.lp agenda-properties/separation.lp examples/profiles/profile1.lp --pre | reify | clingo - meta.lp metaD.lp metaO.lp -Wno-atom-undefined --project 0`
+```
+clingo ja.lp agenda-properties/separation.lp examples/profiles/profile1.lp --pre | reify | clingo - meta.lp metaD.lp metaO.lp -Wno-atom-undefined --project 0
+```
 
 #### Overlapping separation
 Example:
-`clingo ja.lp agenda-properties/overlapping-separation.lp examples/profiles/profile1.lp -n 0`
+```
+clingo ja.lp agenda-properties/overlapping-separation.lp examples/profiles/profile1.lp -n 0
+```
 Another example, invoking meta-programming, where possible duplicate answer sets are removed:
-`clingo ja.lp agenda-properties/overlapping-separation.lp examples/profiles/profile1.lp --pre | reify | clingo - meta.lp metaD.lp metaO.lp -Wno-atom-undefined --project 0`
+```
+clingo ja.lp agenda-properties/overlapping-separation.lp examples/profiles/profile1.lp --pre | reify | clingo - meta.lp metaD.lp metaO.lp -Wno-atom-undefined --project 0
+```
 
 #### Total blockedness / path connectedness
 
