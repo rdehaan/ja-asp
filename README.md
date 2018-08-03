@@ -71,7 +71,7 @@ windet/ra.lp
 
 General use:
 ```
-clingo ja.lp windet/windet.lp windet/*[rule]*-opt.lp *[profile]*.lp -n 0
+clingo ja.lp windet/windet.lp windet/RULE-opt.lp PROFILE.lp -n 0
 ```
 
 Example:
@@ -107,7 +107,7 @@ windet/young-opt.lp
 
 General use:
 ```
-clingo ja.lp windet/windet.lp windet/*[rule]*-opt.lp *[profile]*.lp --opt-mode=optN
+clingo ja.lp windet/windet.lp windet/RULE-opt.lp PROFILE.lp --opt-mode=optN
 ```
 
 Example:
@@ -132,7 +132,7 @@ windet/slater-meta.lp
 
 General use:
 ```
-clingo ja.lp windet/windet.lp windet/*[rule]*-meta.lp *[profile]*.lp --pre | reify | clingo - meta.lp metaD.lp metaO.lp -Wno-atom-undefined --project 0
+clingo ja.lp windet/windet.lp windet/RULE-meta.lp PROFILE.lp --pre | reify | clingo - meta.lp metaD.lp metaO.lp -Wno-atom-undefined --project 0
 ```
 
 Example:
