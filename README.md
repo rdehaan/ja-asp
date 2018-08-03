@@ -12,9 +12,14 @@ which is part of the [Potsdam Answer Set Solving Collection](https://potassco.or
 clingo 5.3.0
 ```
 
+You need to have [clingo](https://potassco.org/clingo/) installed to run the examples.
+
 ### Installing
 
 This package can be installed by simply downloading all files.
+
+For instructions on how to install [clingo](https://potassco.org/clingo/),
+see their web page.
 
 ## Use
 
