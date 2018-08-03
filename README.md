@@ -3,11 +3,9 @@ Encodings of Judgment Aggregation (JA) problems into Answer Set Programming (ASP
 
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
-
 ### Prerequisites
 
-What things you need to install the software and how to install them
+This package was developed and tested with the following software:
 
 ```
 clingo 5.3.0
@@ -15,9 +13,7 @@ clingo 5.3.0
 
 ### Installing
 
-A step by step series of examples that tell you how to get a development env running
-
-Say what the step will be
+[TODO]
 
 ## Use
 
@@ -26,7 +22,7 @@ Say what the step will be
 #### Agendas
 
 For each issue (propositional variable) `p`, add a fact `issue(p).`
-(You can use pooling to express multiple facts in one line, e.g., `issue(p;q).`)
+(Note, you can express multiple facts in one line, e.g., `issue(p;q).`)
 
 To express an integrity constraint in CNF, for each clause (`l1` OR `l2` OR `l3`),
 where `l1`, `l2` and `l3` are literals, add facts `clause(i,(l1;l2;l3)).`
@@ -44,7 +40,8 @@ clause(3,(-i3;i4;-i2)).
 #### Profiles
 
 For each voter `v`, add a fact `voter(v).`
-(You can use pooling to express multiple facts in one line, e.g., `voter(v1;v2).`)
+(Note, you can express multiple facts in one line,
+e.g., `voter(v1;v2).` or `voter(1..10).`)
 
 For each voter `v` and each issue `p`,
 add the voters judgment on this issue:
@@ -53,9 +50,9 @@ add the voters judgment on this issue:
 Example:
 ```
 voter(1..17).
-js((1;2;3;4;5;6),(i1;i2;i3;i4;i5)).
-js((7;8;9;10),(i1;i2;-i3;-i4;i5)).
-js((11;12;13;14;15;16;17),(-i1;-i2;i3;-i4;-i5)).
+js(1..6,(i1;i2;i3;i4;i5)).
+js(7..10,(i1;i2;-i3;-i4;i5)).
+js(11..17,(-i1;-i2;i3;-i4;-i5)).
 ```
 
 ### Winner determination
