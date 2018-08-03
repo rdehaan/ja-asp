@@ -26,7 +26,7 @@ see the [potassco web page](https://potassco.org/).
 - give instructions and pointers for ASP
 - give a pointer to the ASP Standard 2.0
 
-> Gebser, M., Kaminski, R., Kaufmann, B. and Schaub, T., 2012. *Answer set solving in practice*. Synthesis Lectures on Artificial Intelligence and Machine Learning, 6(3), pp.1-238.
+> Gebser, M., Kaminski, R., Kaufmann, B. and Schaub, T., 2012. *Answer set solving in practice*. Synthesis Lectures on Artificial Intelligence and Machine Learning, 6(3), pp.1-238. [(link)](https://www.morganclaypool.com/doi/abs/10.2200/S00457ED1V01Y201211AIM019)
 
 ### Encoding
 
