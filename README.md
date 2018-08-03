@@ -25,11 +25,12 @@ Say what the step will be
 
 #### Agendas
 
-For each issue (propositional variable) `p`, add a fact `issue(p).`.
-(You can use pooling to express multiple facts in one line, e.g., `issue(p;q).`.)
+For each issue (propositional variable) `p`, add a fact `issue(p).`
+(You can use pooling to express multiple facts in one line, e.g., `issue(p;q).`)
 
-To express an integrity constraint in CNF, for each clause (l1 OR l2 OR l3),
-where `l1`, `l2` and `l3` are literals, add facts `clause(i,(l1;l2;l3))`.
+To express an integrity constraint in CNF, for each clause (`l1` OR `l2` OR `l3`),
+where `l1`, `l2` and `l3` are literals, add facts `clause(i,(l1;l2;l3)).`
+E.g., `clause(1,(p;-q;-r)).`
 Here `i` is the unique identifier of the clause (e.g., its number).
 
 Example:
@@ -42,12 +43,12 @@ clause(3,(-i3;i4;-i2)).
 
 #### Profiles
 
-For each voter `v`, add a fact `voter(v).`.
-(You can use pooling to express multiple facts in one line, e.g., `voter(v1;v2).`.)
+For each voter `v`, add a fact `voter(v).`
+(You can use pooling to express multiple facts in one line, e.g., `voter(v1;v2).`)
 
 For each voter `v` and each issue `p`,
 add the voters judgment on this issue:
-`js(v,p).` or `js(v,-p)`.
+`js(v,p).` or `js(v,-p).`
 
 Example:
 ```
