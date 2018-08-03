@@ -19,12 +19,14 @@ You need to have [clingo](https://potassco.org/clingo/) installed to run the exa
 This package can be installed by simply downloading all files.
 
 For instructions on how to install [clingo](https://potassco.org/clingo/),
-see their web page.
+see the [potassco web page](https://potassco.org/).
 
 ## Use
 
 - give instructions and pointers for ASP
 - give a pointer to the ASP Standard 2.0
+
+> Gebser, M., Kaminski, R., Kaufmann, B. and Schaub, T., 2012. *Answer set solving in practice*. Synthesis Lectures on Artificial Intelligence and Machine Learning, 6(3), pp.1-238.
 
 ### Encoding
 
@@ -121,7 +123,7 @@ clingo ja.lp windet/windet.lp windet/RULE-opt.lp PROFILE.lp --opt-mode=optN
 
 Example:
 ```
-clingo ja.lp windet/windet.lp windet/kemeny1-opt.lp examples/profiles/profile1.lp --opt-mode=optimization
+clingo ja.lp windet/windet.lp windet/kemeny1-opt.lp examples/profiles/profile1.lp --opt-mode=optN
 ```
 
 #### Rules with meta-programming encodings
