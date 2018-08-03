@@ -6,8 +6,8 @@ Encodings of Judgment Aggregation (JA) problems into Answer Set Programming (ASP
 ### Prerequisites
 
 This package was developed and tested with [clingo](https://potassco.org/clingo/),
-which is part of the [Potsdam Answer Set Solving Collection](https://potassco.org/)
--- in particular, with the following version:
+which is part of the [Potsdam Answer Set Solving Collection](https://potassco.org/) -
+in particular, with the following version:
 ```
 clingo 5.3.0
 ```
@@ -26,7 +26,7 @@ see the [potassco web page](https://potassco.org/).
 - give instructions and pointers for ASP
 - give a pointer to the ASP Standard 2.0
 
-> Gebser, M., Kaminski, R., Kaufmann, B. and Schaub, T., 2012. [*Answer set solving in practice*](https://www.morganclaypool.com/doi/abs/10.2200/S00457ED1V01Y201211AIM019). Synthesis Lectures on Artificial Intelligence and Machine Learning, 6(3), pp.1-238. 
+> Gebser, M., Kaminski, R., Kaufmann, B. and Schaub, T., 2012. [*Answer set solving in practice*](https://www.morganclaypool.com/doi/abs/10.2200/S00457ED1V01Y201211AIM019). Synthesis Lectures on Artificial Intelligence and Machine Learning, 6(3), pp. 1-238.
 
 ### Encoding
 
@@ -37,8 +37,8 @@ For each issue (propositional variable) `p`, add a fact `issue(p).`
 
 To express an integrity constraint in CNF, for each clause (`l1` OR `l2` OR `l3`),
 where `l1`, `l2` and `l3` are literals, add facts `clause(i,(l1;l2;l3)).`
-E.g., `clause(1,(p;-q;-r)).`
 Here `i` is the unique identifier of the clause (e.g., its number).
+E.g., `clause(1,(p;-q;-r)).`
 
 Example:
 ```
@@ -118,12 +118,12 @@ windet/young-opt.lp
 
 General use:
 ```
-clingo ja.lp windet/windet.lp windet/RULE-opt.lp PROFILE.lp --opt-mode=optN
+clingo ja.lp windet/windet.lp windet/RULE-opt.lp PROFILE.lp --opt-mode=optN -q1
 ```
 
 Example:
 ```
-clingo ja.lp windet/windet.lp windet/kemeny1-opt.lp examples/profiles/profile1.lp --opt-mode=optN
+clingo ja.lp windet/windet.lp windet/kemeny1-opt.lp examples/profiles/profile1.lp --opt-mode=optN -q1
 ```
 
 #### Rules with meta-programming encodings
@@ -199,4 +199,4 @@ clingo ja.lp agenda-properties/overlapping-separation.lp examples/profiles/profi
 
 ## License
 
-- This project is licensed under [TODO].
+This project is licensed under the GNU General Public License v3.0 - see the [LICENSE.md](LICENSE.md) file for details.
