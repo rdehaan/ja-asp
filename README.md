@@ -23,6 +23,9 @@ see their web page.
 
 ## Use
 
+[ ] give instructions and pointers for ASP
+[ ] give a pointer to the ASP Standard 2.0
+
 ### Encoding
 
 #### Agendas
@@ -194,4 +197,4 @@ clingo ja.lp agenda-properties/overlapping-separation.lp examples/profiles/profi
 
 ## License
 
-This project is licensed under [TODO].
+[ ] This project is licensed under [TODO].
