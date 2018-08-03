@@ -5,8 +5,9 @@ Encodings of Judgment Aggregation (JA) problems into Answer Set Programming (ASP
 
 ### Prerequisites
 
-This package was developed and tested with the following software:
-
+This package was developed and tested with [clingo](https://potassco.org/clingo/)
+(from the [Potsdam Answer Set Solving Collection (potassco)][https://potassco.org/]).
+In particular, with the following version:
 ```
 clingo 5.3.0
 ```
