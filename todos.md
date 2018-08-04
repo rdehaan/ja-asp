@@ -11,6 +11,6 @@
 - [ ] Create meta encoding for MNAC
 - [x] Create meta encoding for Young
 - [ ] Create meta encoding for Leximax
-- [ ] Create meta encoding for MaxHam
+- [x] Create meta encoding for MaxHam
 - [ ] Create encoding for total blockedness
 - [ ] Create encoding for even negatability
