@@ -47,7 +47,7 @@ For more details on answer set programming,
 we refer to the literature, e.g.:
 > Gebser, M., Kaminski, R., Kaufmann, B. and Schaub, T. [*Answer set solving in practice*](https://www.morganclaypool.com/doi/abs/10.2200/S00457ED1V01Y201211AIM019). Synthesis Lectures on Artificial Intelligence and Machine Learning, 6(3), pp. 1-238, 2012.
 
-For various encodings and examples, we use
+For several encodings and examples, we use
 pottasco's [metasp](https://potassco.org/labs/metasp/) encodings,
 that employ the technique of meta-programming.
 
@@ -106,7 +106,7 @@ js(11..17,(-i1;-i2;i3;-i4;-i5)).
 
 ### Generating all consistent judgment sets
 
-General use:
+General use (replace `PROFILE`):
 ```
 clingo models.lp PROFILE.lp -Wno-atom-undefined --project -n0
 ```
@@ -129,7 +129,7 @@ windet/quota.lp     % needs definition of #const quota
 windet/ra.lp
 ```
 
-General use:
+General use (replace `RULE` and `PROFILE`):
 ```
 clingo windet/RULE.lp PROFILE.lp -Wno-atom-undefined --project -n0
 ```
@@ -137,10 +137,13 @@ Example:
 ```
 clingo windet/msa.lp examples/profiles/profile1.lp -Wno-atom-undefined  --project -n0
 ```
-Another example, invoking meta-programming:
+
+<!---Another example, invoking meta-programming:
 ```
 clingo windet/msa.lp examples/profiles/profile1.lp -Wno-atom-undefined --pre | reify | clingo - meta.lp metaD.lp metaO.lp -Wno-atom-undefined --project 0
 ```
+--->
+
 In order to use the (uniform) quota rule, you need to specify a value for the
 constant `quota`, for example:
 ```
@@ -165,7 +168,7 @@ windet/slater-opt.lp
 windet/young-opt.lp
 ```
 
-General use:
+General use (replace `RULE` and `PROFILE`):
 ```
 clingo windet/RULE-opt.lp PROFILE.lp --opt-mode=optN -q1 -Wno-atom-undefined --project
 ```
@@ -194,7 +197,7 @@ windet/slater-meta.lp
 windet/young-meta.lp
 ```
 
-General use:
+General use (replace `RULE` and `PROFILE`):
 ```
 clingo windet/RULE-meta.lp PROFILE.lp -Wno-atom-undefined --pre | reify | clingo - meta.lp metaD.lp metaO.lp -Wno-atom-undefined --project -n0
 ```
@@ -207,44 +210,73 @@ clingo windet/msa-meta.lp examples/profiles/profile1.lp -Wno-atom-undefined --pr
 ### Checking agenda properties
 
 #### Median property
+
+General use (replace `AGENDA`):
+```
+clingo agenda-properties/mp.lp examples/profiles/AGENDA.lp -Wno-atom-undefined --project -n0
+```
 Example:
 ```
 clingo agenda-properties/mp.lp examples/profiles/profile1.lp -Wno-atom-undefined --project -n0
 ```
+
+<!---
 Another example, invoking meta-programming:
 ```
 clingo agenda-properties/mp.lp examples/profiles/profile1.lp -Wno-atom-undefined --pre | reify | clingo - meta.lp metaD.lp metaO.lp -Wno-atom-undefined --project -n0
 ```
+--->
 
 #### k-Median property
+
+General use (replace `AGENDA` and `VALUE`):
+```
+clingo agenda-properties/k-mp.lp AGENDA.lp <(echo "#const k=VALUE.") -Wno-atom-undefined --project -n0
+```
 Example:
 ```
 clingo agenda-properties/k-mp.lp examples/profiles/profile1.lp <(echo "#const k=2.") -Wno-atom-undefined --project -n0
 ```
+<!---
 Another example, invoking meta-programming:
 ```
 clingo agenda-properties/k-mp.lp examples/profiles/profile1.lp <(echo "#const k=2.") -Wno-atom-undefined --pre | reify | clingo - meta.lp metaD.lp metaO.lp -Wno-atom-undefined --project -n0
 ```
+--->
 
 #### Separation
+
+General use (replace `AGENDA`):
+```
+clingo agenda-properties/separation.lp AGENDA.lp -Wno-atom-undefined --project -n0
+```
 Example:
 ```
 clingo agenda-properties/separation.lp examples/profiles/profile1.lp -Wno-atom-undefined --project -n0
 ```
+<!---
 Another example, invoking meta-programming:
 ```
-clingo agenda-properties/separation.lp examples/profiles/profile1.lp -Wno-atom-undefined --pre | reify | clingo - meta.lp metaD.lp metaO.lp -Wno-atom-undefined --project -n0
+clingo agenda-properties/separation.lp exąmples/profiles/profile1.lp -Wno-atom-undefined --pre | reify | clingo - meta.lp metaD.lp metaO.lp -Wno-atom-undefined --project -n0
 ```
+--->
 
 #### Overlapping separation
+
+General use (replace `AGENDA`):
+```
+clingo agenda-properties/overlapping-separation.lp AGENDA.lp -Wno-atom-undefined --project -n0
+```
 Example:
 ```
 clingo agenda-properties/overlapping-separation.lp examples/profiles/profile1.lp -Wno-atom-undefined --project -n0
 ```
+<!---
 Another example, invoking meta-programming:
 ```
 clingo agenda-properties/overlapping-separation.lp examples/profiles/profile1.lp -Wno-atom-undefined --pre | reify | clingo - meta.lp metaD.lp metaO.lp -Wno-atom-undefined --project -n0
 ```
+--->
 
 #### Total blockedness / path connectedness
 
