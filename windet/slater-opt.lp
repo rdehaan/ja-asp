@@ -4,6 +4,8 @@
 
 #include "windet.lp".
 
+% mark that this is an optimization problem (for pretty printing).
+optimization.
 % determine the majority outcome
 pc(X,N) :- ilit(X), N = #count { A : voter(A), js(A,X) }.
 maj(X) :- ilit(X), pc(X,N), pc(-X,M), N > M.

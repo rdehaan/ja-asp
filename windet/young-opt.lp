@@ -4,6 +4,8 @@
 
 #include "windet.lp".
 
+% mark that this is an optimization problem (for pretty printing).
+optimization.
 % for each voter, guess whether they are 'in' or 'out'
 in(A) :- voter(A), not out(A).
 out(A) :- voter(A), not in(A).

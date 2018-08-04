@@ -4,6 +4,8 @@
 
 #include "windet.lp".
 
+% mark that this is an optimization problem (for pretty printing).
+optimization.
 % for each voter A and each literal X, create a virtual agent virtual(A,X)
 % (with its own judgment set)
 agent(virtual(A,X)) :- voter(A), ilit(X).

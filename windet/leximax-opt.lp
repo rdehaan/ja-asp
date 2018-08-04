@@ -4,6 +4,8 @@
 
 #include "windet.lp".
 
+% mark that this is an optimization problem (for pretty printing).
+optimization.
 % determine support for each issue literal
 pc(X,N) :- ilit(X), N = #count { A : voter(A), js(A,X) }.
 % maximize agreement with the issue literals on different priority levels;

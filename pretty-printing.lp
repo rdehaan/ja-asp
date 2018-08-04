@@ -49,11 +49,19 @@ def main(prg):
         iparts1.sort(key=removeTrailingNeg);
         iparts2.sort(key=removeTrailingNeg);
 
+        # check if the encoding is an optimization version
+        optimization = False;
+        for atom in m.symbols(atoms=True):
+            if str(atom) == "optimization":
+                optimization = True;
+
         # use the generated lists to create output in set notation
         if judgments != []:
             print("Judgment set: { " + ', '.join(map(addSpaceIfNoNeg,judgments)) + " }");
         if collectives != []:
-            print("Collective outcome: { " + ', '.join(map(addSpaceIfNoNeg,collectives)) + " }");
+            # if we're dealing with an optimization encoding, only print optimal models
+            if (optimization == False) | (m.optimality_proven == True):
+                print("Collective outcome: { " + ', '.join(map(addSpaceIfNoNeg,collectives)) + " }");
         if assigns != []:
             print("Minimally inconsistent assignment: { " + ', '.join(map(addSpaceIfNoNeg,assigns)) + " }");
         if iparts1 != []:
