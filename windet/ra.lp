@@ -5,10 +5,10 @@
 #include "windet.lp".
 
 % determine support for each literal
-pc(X,N) :- lit(X), N = #count { A : voter(A), js(A,X) }.
+pc(X,N) :- ilit(X), N = #count { A : voter(A), js(A,X) }.
 % guess an order over all literals that is consistent with order of support
-1 { order(X,Y) : litnum(Y) } 1 :- lit(X).
-1 { order(X,Y) : lit(X) } 1 :- litnum(Y).
+1 { order(X,Y) : litnum(Y) } 1 :- ilit(X).
+1 { order(X,Y) : ilit(X) } 1 :- litnum(Y).
 :- order(X1,Y1), order(X2,Y2), pc(X1,N1), pc(X2,N2), N1 > N2, Y1 > Y2.
 % use saturation (see Eiter, Gottlob '95)
 w(W) :- not w(W), litnum(W).

@@ -8,8 +8,8 @@
 in(A) :- voter(A), not out(A).
 out(A) :- voter(A), not in(A).
 % determine the majority w.r.t. the 'in' voters
-inpc(X,N) :- lit(X), N = #count { A : voter(A), in(A), js(A,X) }.
-inmaj(X) :- lit(X), inpc(X,N), inpc(-X,M), N > M.
+inpc(X,N) :- ilit(X), N = #count { A : voter(A), in(A), js(A,X) }.
+inmaj(X) :- ilit(X), inpc(X,N), inpc(-X,M), N > M.
 % require that the outcome agrees with 'in'-majority
 js(col,X) :- inmaj(X).
 %%% to get the variant with strict majority

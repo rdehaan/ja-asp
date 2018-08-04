@@ -5,7 +5,7 @@
 #include "windet.lp".
 
 % determine support for each literal
-pc(X,N) :- lit(X), N = #count { A : voter(A), js(A,X) }.
+pc(X,N) :- ilit(X), N = #count { A : voter(A), js(A,X) }.
 % maximize agreement with the literals on different priority levels;
 % for each literal X, agreeing with X is prioritized on level N,
 % where N is the support for X

@@ -5,8 +5,8 @@
 #include "windet.lp".
 
 % find the majority outcome
-pc(X,N) :- lit(X), N = #count { A : voter(A), js(A,X) }.
-maj(X) :- lit(X), pc(X,N), pc(-X,M), N > M.
+pc(X,N) :- ilit(X), N = #count { A : voter(A), js(A,X) }.
+maj(X) :- ilit(X), pc(X,N), pc(-X,M), N > M.
 % mark which issues in the collective outcome agree with the majority
 majagree(X) :- maj(X), js(col,X).
 % use the technique of saturation (see Eiter & Gottlob '95)

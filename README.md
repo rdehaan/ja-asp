@@ -71,6 +71,21 @@ clause(2,(-i3;i4;-i1)).
 clause(3,(-i3;i4;-i2)).
 ```
 
+#### Auxiliary variables
+
+If you want to use auxiliary variables to express the integrity constraint,
+you need to declare each auxiliary variable `a` with a fact `aux(a).`
+
+Example:
+```
+issue(i1;i2;i3;i4;i5).
+aux(a1).
+clause(1,(i3;-i4)).
+clause(2,(-i3;i4;-i1)).
+clause(3,(-i3;i4;-i2;a1)).
+clause(3,(-i3;i4;-i2;-a1)).
+```
+
 #### Profiles
 
 For each voter `v`, add a fact `voter(v).`
@@ -93,11 +108,11 @@ js(11..17,(-i1;-i2;i3;-i4;-i5)).
 
 General use:
 ```
-clingo models.lp PROFILE.lp -n 0
+clingo models.lp PROFILE.lp -Wno-atom-undefined --project -n0
 ```
 Example:
 ```
-clingo models.lp examples/profiles/profile1.lp -n 0
+clingo models.lp examples/profiles/profile1.lp -Wno-atom-undefined --project -n0
 ```
 
 ### Winner determination
@@ -116,20 +131,20 @@ windet/ra.lp
 
 General use:
 ```
-clingo windet/RULE.lp PROFILE.lp -n 0
+clingo windet/RULE.lp PROFILE.lp -Wno-atom-undefined --project -n0
 ```
 Example:
 ```
-clingo windet/msa.lp examples/profiles/profile1.lp -n 0
+clingo windet/msa.lp examples/profiles/profile1.lp -Wno-atom-undefined  --project -n0
 ```
-Another example, invoking meta-programming, where possible duplicate answer sets are removed:
+Another example, invoking meta-programming:
 ```
-clingo windet/msa.lp examples/profiles/profile1.lp --pre | reify | clingo - meta.lp metaD.lp metaO.lp -Wno-atom-undefined --project 0
+clingo windet/msa.lp examples/profiles/profile1.lp -Wno-atom-undefined --pre | reify | clingo - meta.lp metaD.lp metaO.lp -Wno-atom-undefined --project 0
 ```
 In order to use the (uniform) quota rule, you need to specify a value for the
 constant `quota`, for example:
 ```
-clingo windet/quota.lp examples/profiles/profile0.lp <(echo "#const quota=2.") -n 0
+clingo windet/quota.lp examples/profiles/profile0.lp <(echo "#const quota=2.") -Wno-atom-undefined --project -n0
 ```
 
 #### Rules with optimization encodings
@@ -152,12 +167,12 @@ windet/young-opt.lp
 
 General use:
 ```
-clingo windet/RULE-opt.lp PROFILE.lp --opt-mode=optN -q1
+clingo windet/RULE-opt.lp PROFILE.lp --opt-mode=optN -q1 -Wno-atom-undefined --project
 ```
 
 Example:
 ```
-clingo windet/kemeny1-opt.lp examples/profiles/profile1.lp --opt-mode=optN -q1
+clingo windet/kemeny1-opt.lp examples/profiles/profile1.lp --opt-mode=optN -q1 -Wno-atom-undefined --project
 ```
 
 #### Rules with meta-programming encodings
@@ -181,12 +196,12 @@ windet/young-meta.lp
 
 General use:
 ```
-clingo windet/RULE-meta.lp PROFILE.lp --pre | reify | clingo - meta.lp metaD.lp metaO.lp -Wno-atom-undefined --project 0
+clingo windet/RULE-meta.lp PROFILE.lp -Wno-atom-undefined --pre | reify | clingo - meta.lp metaD.lp metaO.lp -Wno-atom-undefined --project -n0
 ```
 
 Example:
 ```
-clingo windet/msa-meta.lp examples/profiles/profile1.lp --pre | reify | clingo - meta.lp metaD.lp metaO.lp -Wno-atom-undefined --project 0
+clingo windet/msa-meta.lp examples/profiles/profile1.lp -Wno-atom-undefined --pre | reify | clingo - meta.lp metaD.lp metaO.lp -Wno-atom-undefined --project -n0
 ```
 
 ### Checking agenda properties
@@ -194,41 +209,41 @@ clingo windet/msa-meta.lp examples/profiles/profile1.lp --pre | reify | clingo -
 #### Median property
 Example:
 ```
-clingo agenda-properties/mp.lp examples/profiles/profile1.lp -n 0
+clingo agenda-properties/mp.lp examples/profiles/profile1.lp -Wno-atom-undefined --project -n0
 ```
-Another example, invoking meta-programming, where possible duplicate answer sets are removed:
+Another example, invoking meta-programming:
 ```
-clingo agenda-properties/mp.lp examples/profiles/profile1.lp --pre | reify | clingo - meta.lp metaD.lp metaO.lp -Wno-atom-undefined --project 0
+clingo agenda-properties/mp.lp examples/profiles/profile1.lp -Wno-atom-undefined --pre | reify | clingo - meta.lp metaD.lp metaO.lp -Wno-atom-undefined --project -n0
 ```
 
 #### k-Median property
 Example:
 ```
-clingo agenda-properties/k-mp.lp examples/profiles/profile1.lp <(echo "#const k=2.") -n 0
+clingo agenda-properties/k-mp.lp examples/profiles/profile1.lp <(echo "#const k=2.") -Wno-atom-undefined --project -n0
 ```
-Another example, invoking meta-programming, where possible duplicate answer sets are removed:
+Another example, invoking meta-programming:
 ```
-clingo agenda-properties/k-mp.lp examples/profiles/profile1.lp <(echo "#const k=2.") --pre | reify | clingo - meta.lp metaD.lp metaO.lp -Wno-atom-undefined --project 0
+clingo agenda-properties/k-mp.lp examples/profiles/profile1.lp <(echo "#const k=2.") -Wno-atom-undefined --pre | reify | clingo - meta.lp metaD.lp metaO.lp -Wno-atom-undefined --project -n0
 ```
 
 #### Separation
 Example:
 ```
-clingo agenda-properties/separation.lp examples/profiles/profile1.lp -n 0
+clingo agenda-properties/separation.lp examples/profiles/profile1.lp -Wno-atom-undefined --project -n0
 ```
-Another example, invoking meta-programming, where possible duplicate answer sets are removed:
+Another example, invoking meta-programming:
 ```
-clingo agenda-properties/separation.lp examples/profiles/profile1.lp --pre | reify | clingo - meta.lp metaD.lp metaO.lp -Wno-atom-undefined --project 0
+clingo agenda-properties/separation.lp examples/profiles/profile1.lp -Wno-atom-undefined --pre | reify | clingo - meta.lp metaD.lp metaO.lp -Wno-atom-undefined --project -n0
 ```
 
 #### Overlapping separation
 Example:
 ```
-clingo agenda-properties/overlapping-separation.lp examples/profiles/profile1.lp -n 0
+clingo agenda-properties/overlapping-separation.lp examples/profiles/profile1.lp -Wno-atom-undefined --project -n0
 ```
-Another example, invoking meta-programming, where possible duplicate answer sets are removed:
+Another example, invoking meta-programming:
 ```
-clingo agenda-properties/overlapping-separation.lp examples/profiles/profile1.lp --pre | reify | clingo - meta.lp metaD.lp metaO.lp -Wno-atom-undefined --project 0
+clingo agenda-properties/overlapping-separation.lp examples/profiles/profile1.lp -Wno-atom-undefined --pre | reify | clingo - meta.lp metaD.lp metaO.lp -Wno-atom-undefined --project -n0
 ```
 
 #### Total blockedness / path connectedness

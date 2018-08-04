@@ -5,9 +5,9 @@
 #include "windet.lp".
 
 % determine the majority outcome
-pc(X,N) :- lit(X), N = #count { A : voter(A), js(A,X) }.
-maj(X) :- lit(X), pc(X,N), pc(-X,M), N > M.
-majdisagree(X) :- lit(X), maj(X), js(col,-X).
+pc(X,N) :- ilit(X), N = #count { A : voter(A), js(A,X) }.
+maj(X) :- ilit(X), pc(X,N), pc(-X,M), N > M.
+majdisagree(X) :- ilit(X), maj(X), js(col,-X).
 % inclusion minimize disagreement with the majority outcome
 _criteria(0,1,X) :- majdisagree(X).
 _optimize(0,1,incl).

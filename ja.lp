@@ -3,8 +3,15 @@
 %%%
 
 % generate literals over all issues
-lit(X) :- issue(X).
-lit(-X) :- issue(X).
+ilit(X) :- issue(X).
+ilit(-X) :- issue(X).
+lit(X) :- ilit(X).
+% generate literals over all auxiliary variables
+lit(X) :- aux(X).
+lit(-X) :- aux(X).
+% auxiliary predicate for variables
+var(X) :- issue(X).
+var(X) :- aux(X).
 
 % auxiliary predicates for counting/identifying issues, literals, voters
 numissues(N) :- N = #count { Z : issue(Z) }.

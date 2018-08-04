@@ -26,11 +26,11 @@ w :- not w.
 virtual1(X) :- lit(X), w.
 virtual2(X) :- lit(X), w.
 % guess a virtual assignment
-virtual1(X) ; virtual1(-X) :- issue(X).
-virtual2(X) ; virtual2(-X) :- issue(X).
+virtual1(X) ; virtual1(-X) :- var(X).
+virtual2(X) ; virtual2(-X) :- var(X).
 % remove virtual assignments that are contradictory
-w :- issue(X), virtual1(X), virtual1(-X).
-w :- issue(X), virtual2(X), virtual2(-X).
+w :- var(X), virtual1(X), virtual1(-X).
+w :- var(X), virtual2(X), virtual2(-X).
 % remove virtual assignments that do not satisfy the integrity constraint
 w :- clause(C), virtual1(-L) : clause(C,L).
 w :- clause(C), virtual2(-L) : clause(C,L).

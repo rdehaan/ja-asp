@@ -6,13 +6,13 @@
 
 % for each voter A and each literal X, create a virtual agent virtual(A,X)
 % (with its own judgment set)
-agent(virtual(A,X)) :- voter(A), lit(X).
+agent(virtual(A,X)) :- voter(A), ilit(X).
 % require that virtual(A,X) has -X in its judgment set
-js(virtual(A,X),-X) :- voter(A), lit(X), js(A,X).
+js(virtual(A,X),-X) :- voter(A), ilit(X), js(A,X).
 % determine for which literals Y, virtual(A,X) disagrees with A
 % and take sum of disagreement per virtual(A,X)
-disagree(A,X,Y) :- voter(A), lit(X), lit(Y), js(A,Y), js(virtual(A,X),-Y).
-disagreement(A,X,D) :- voter(A), lit(X), D = #count { Y : disagree(A,X,Y) }.
+disagree(A,X,Y) :- voter(A), ilit(X), ilit(Y), js(A,Y), js(virtual(A,X),-Y).
+disagreement(A,X,D) :- voter(A), ilit(X), D = #count { Y : disagree(A,X,Y) }.
 % firstly minimize total disagreement (at high priority level)
 #minimize { D@20,disagreement(A,X,D) : disagreement(A,X,D) }.
 %#minimize { 1@20,disagree(A,X,Y) : disagree(A,X,Y) }. % alternative way of writing minimization
