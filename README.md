@@ -10,7 +10,7 @@ we refer to the literature, e.g.:
 - [Getting started](#getting-started)
 - [Use](#use)
   - [Answer set programming](#answer-set-programming)
-  - [Encoding](#encoding)
+  - [Encoding judgment aggregation](#encoding-judgment-aggregation)
   - [Generating all consistent judgment sets](#generating-all-consistent-judgment-sets)
   - [Winner determination](#winner-determination)
   - [Checking agenda properties](#checking-agenda-properties)
@@ -51,7 +51,7 @@ For various encodings and examples, we use
 pottasco's [metasp](https://potassco.org/labs/metasp/) encodings,
 that employ the technique of meta-programming.
 
-### Encoding
+### Encoding judgment aggregation
 
 #### Agendas
 
