@@ -5,6 +5,15 @@ For more details on Judgment Aggregation,
 we refer to the literature, e.g.:
 > Endriss, U. [*Judgment Aggregation*](https://staff.fnwi.uva.nl/u.endriss/pubs/files/EndrissHBCOMSOC2016.pdf). In: F. Brandt, V. Conitzer, U. Endriss, J. Lang, and A. D. Procaccia, editors, *Handbook of Computational Social Choice*, Cambridge University Press, 2016.
 
+## Table of contents
+
+- [Getting started](#getting-started)
+- [Use](#use)
+ - [Encoding](#encoding)
+ - [Generating all consistent judgment sets](#generating-all-consistent-judgment-sets)
+ - [Winner determination](#winner-determination)
+ - [Checking agenda properties](#checking-agenda-properties)
+
 ## Getting Started
 
 ### Prerequisites
@@ -48,7 +57,7 @@ Here `i` is the unique identifier of the clause (e.g., its number).
 E.g., `clause(1,(p;-q;-r)).`
 
 Example:
-```
+```prolog
 issue(i1;i2;i3;i4;i5).
 clause(1,(i3;-i4)).
 clause(2,(-i3;i4;-i1)).
@@ -66,7 +75,7 @@ add the voters judgment on this issue:
 `js(v,p).` or `js(v,-p).`
 
 Example:
-```
+```prolog
 voter(1..17).
 js(1..6,(i1;i2;i3;i4;i5)).
 js(7..10,(i1;i2;-i3;-i4;i5)).
@@ -213,6 +222,12 @@ clingo agenda-properties/overlapping-separation.lp examples/profiles/profile1.lp
 #### Total blockedness / path connectedness
 
 #### Even negatability
+
+## Acknowledgments
+
+The encodings in this package are created by
+[Ronald de Haan](https://staff.science.uva.nl/r.dehaan/)
+and [Marija Slavkovik](http://slavkovik.com/).
 
 ## License
 
