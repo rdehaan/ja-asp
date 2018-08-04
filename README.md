@@ -9,6 +9,7 @@ we refer to the literature, e.g.:
 
 - [Getting started](#getting-started)
 - [Use](#use)
+  - [Answer set programming](#answer-set-programming)
   - [Encoding](#encoding)
   - [Generating all consistent judgment sets](#generating-all-consistent-judgment-sets)
   - [Winner determination](#winner-determination)
@@ -36,6 +37,8 @@ For instructions on how to install [clingo](https://potassco.org/clingo/),
 see the [potassco web page](https://potassco.org/).
 
 ## Use
+
+### Answer set programming
 
 The encodings in this package use the
 [ASP-Core-2 language format](https://www.mat.unical.it/aspcomp2013/files/ASP-CORE-2.03c.pdf).
