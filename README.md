@@ -170,6 +170,7 @@ and one needs to enumerate all answer sets to get all outcomes:
 ```
 windet/kemeny-meta.lp
 windet/maxham-meta.lp
+windet/mnac-meta.lp
 windet/msa-meta.lp
 windet/reversal-meta.lp
 windet/slater-meta.lp

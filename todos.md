@@ -8,7 +8,7 @@
 - [ ] Add support for auxiliary variables in all encodings.
 - [ ] Add support for weighted profiles.
 - [ ] Add pretty printing module
-- [ ] Create meta encoding for MNAC
+- [x] Create meta encoding for MNAC
 - [x] Create meta encoding for Young
 - [ ] Create meta encoding for Leximax
 - [x] Create meta encoding for MaxHam
