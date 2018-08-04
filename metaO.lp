@@ -76,4 +76,3 @@ nocon(J,W,A)    :- cxopt(J,W,pref), criteria(J,W,A), criteria(J,W,A'), prefer(A'
 equal(J,W,pref) :- cxopt(J,W,pref), criteria(J,W,A), cando(J,W,A), nocon(A') : criteria(J,W,A'), prefer(A',A), not prefer(A,A').
 
 worse(J)        :- cxopt(J,W,pref), nocon(J,W,A) : criteria(J,W,A).
-

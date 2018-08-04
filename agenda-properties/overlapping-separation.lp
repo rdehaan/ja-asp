@@ -1,6 +1,9 @@
 %%%
 %%% OVERLAPPING AGENDA SEPARATION
 %%%
+
+#include "../ja.lp".
+
 % generate an overlapping decomposition
 % (where none of the partitioning sets are empty)
 % (and none of the partitioning sets includes the other)

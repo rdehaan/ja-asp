@@ -1,6 +1,9 @@
 %%%
 %%% REVERSAL SCORING -- META-PROGRAMMING VERSION
 %%%
+
+#include "windet.lp".
+
 % for each voter A and each literal X, create a virtual agent virtual(A,X)
 % (with its own judgment set)
 agent(virtual(A,X)) :- voter(A), lit(X), js(A,X).

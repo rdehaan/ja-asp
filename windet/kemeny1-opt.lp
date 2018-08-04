@@ -1,6 +1,9 @@
 %%%
 %%% MED = KEMENY
 %%%
+
+#include "windet.lp".
+
 % determine support for each literal
 pc(X,N) :- lit(X), N = #count { A : voter(A), js(A,X) }.
 % maximize the agreement with literals, weighted by their support

@@ -1,6 +1,9 @@
 %%%
 %%% YOUNG
 %%%
+
+#include "windet.lp".
+
 % for each voter, guess whether they are 'in' or 'out'
 in(A) :- voter(A), not out(A).
 out(A) :- voter(A), not in(A).

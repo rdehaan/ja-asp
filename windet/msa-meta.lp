@@ -1,6 +1,9 @@
 %%%
 %%% MC = MSA -- META-PROGRAMMING VERSION
 %%%
+
+#include "windet.lp".
+
 % determine the majority outcome
 pc(X,N) :- lit(X), N = #count { A : voter(A), js(A,X) }.
 maj(X) :- lit(X), pc(X,N), pc(-X,M), N > M.

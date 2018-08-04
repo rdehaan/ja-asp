@@ -1,6 +1,9 @@
 %%%
 %%% MAX-HAMMING
 %%%
+
+#include "windet.lp".
+
 % determine the Hamming distance from each voter's judgment set to the outcome
 dist(A,D) :- voter(A), D = #count { X : lit(X), js(col,X), js(A,-X) }.
 % take the maximum distance (over all voters)

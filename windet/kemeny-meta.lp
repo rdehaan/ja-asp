@@ -1,6 +1,9 @@
 %%%
 %%% KEMENY -- META-PROGRAMMING VERSION
 %%%
+
+#include "windet.lp".
+
 % determine disagreement for each voter A and each literal X
 disagree(A,X,1) :- voter(A), lit(X), js(A,X), js(col,-X).
 % minimize total disagreement

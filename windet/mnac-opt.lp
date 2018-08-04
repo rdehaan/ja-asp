@@ -1,6 +1,9 @@
 %%%
 %%% MNAC = MPC
 %%%
+
+#include "windet.lp".
+
 % add a virtual agent for each voter (with its own judgment set)
 agent(virtual(A)) :- voter(A).
 % require that the outcome is the majority outcome of the virtual profile

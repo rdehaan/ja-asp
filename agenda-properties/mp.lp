@@ -1,6 +1,9 @@
 %%%
 %%% AGENDA NON-SAFETY -- NOT k-MEDIAN-PROPERTY
 %%%
+
+#include "../ja.lp".
+
 #const k=2.
 % generate a partial assignment
 0 { assign(X); assign(-X) } 1 :- lit(X).

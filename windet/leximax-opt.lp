@@ -1,6 +1,9 @@
 %%%
 %%% RA-LEXIMAX
 %%%
+
+#include "windet.lp".
+
 % determine support for each literal
 pc(X,N) :- lit(X), N = #count { A : voter(A), js(A,X) }.
 % maximize agreement with the literals on different priority levels;

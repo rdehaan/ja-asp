@@ -28,7 +28,3 @@ agent(A) :- voter(A).
 
 % constraint consistency (CNF)
 :- agent(A), clause(C), js(A,-L) : clause(C,L).
-
-% constraint consistency (DNF)
-%:- agent(A), termfalse(T,A) : term(T,_).
-%termfalse(T,A) :- term(T,L), js(A,-L).

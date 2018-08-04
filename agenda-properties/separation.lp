@@ -1,6 +1,9 @@
 %%%
 %%% AGENDA SEPARATION
 %%%
+
+#include "../ja.lp".
+
 % generate a partition
 % (where none of the partitioning sets are empty)
 part1(X); part2(X) :- issue(X).

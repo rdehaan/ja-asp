@@ -1,6 +1,9 @@
 %%%
 %%% RA-PARALLEL
 %%%
+
+#include "windet.lp".
+
 % determine support for each literal
 pc(X,N) :- lit(X), N = #count { A : voter(A), js(A,X) }.
 % guess an order over all literals that is consistent with order of support

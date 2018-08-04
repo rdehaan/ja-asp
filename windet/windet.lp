@@ -2,6 +2,8 @@
 %%% BASIC ENCODING OF THE WINNER DETERMINATION PROBLEM
 %%%
 
+#include "../ja.lp".
+
 % generate a collective outcome
 agent(col).
 

@@ -1,6 +1,9 @@
 %%%
 %%% GENERAL SCORING (KEMENY)
 %%%
+
+#include "windet.lp".
+
 % determine score for each voter A and each literal X
 % (1 if A has X in their judgment set; 0 otherwise)
 score(A,X,D) :- voter(A), lit(X), D=1, js(A,X), js(col,X).
