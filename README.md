@@ -110,7 +110,7 @@ all answer sets to get all outcomes:
 ```
 windet/majority.lp
 windet/msa.lp
-windet/quota.lp
+windet/quota.lp     % needs definition of #const quota
 windet/ra.lp
 ```
 
@@ -122,13 +122,14 @@ Example:
 ```
 clingo windet/msa.lp examples/profiles/profile1.lp -n 0
 ```
-Another example:
-```
-clingo windet/quota.lp examples/profiles/profile0.lp <(echo "#const quota=2.") -n 0
-```
-Yet another example, invoking meta-programming, where possible duplicate answer sets are removed:
+Another example, invoking meta-programming, where possible duplicate answer sets are removed:
 ```
 clingo windet/msa.lp examples/profiles/profile1.lp --pre | reify | clingo - meta.lp metaD.lp metaO.lp -Wno-atom-undefined --project 0
+```
+In order to use the (uniform) quota rule, you need to specify a value for the
+constant `quota`, for example:
+```
+clingo windet/quota.lp examples/profiles/profile0.lp <(echo "#const quota=2.") -n 0
 ```
 
 #### Rules with optimization encodings
