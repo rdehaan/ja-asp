@@ -12,8 +12,10 @@ part1(-X) :- issue(X), part1(X).
 part2(-X) :- issue(X), part2(X).
 :- part1(X) : issue(X).
 :- part2(X) : issue(X).
-part(X) :- issue(X), part1(X).
-#show part/1.
+ipart1(X) :- issue(X), part1(X).
+ipart2(X) :- issue(X), part2(X).
+#show ipart1/1.
+#show ipart2/1.
 % verify that this partition separates the agenda, using saturation (see Eiter, Gottlob '95)
 w :- not w.
 virtual1(X) :- lit(X), w.

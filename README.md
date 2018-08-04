@@ -115,6 +115,19 @@ Example:
 clingo models.lp examples/profiles/profile1.lp -Wno-atom-undefined --project -n0
 ```
 
+### Pretty printing
+
+General use (replace `COMMANDS`):
+```
+clingo COMMANDS pretty-printing.lp --outf=3
+```
+Example:
+```
+clingo models.lp examples/profiles/profile1.lp -Wno-atom-undefined --project -n0 pretty-printing.lp --outf=3
+```
+
+The module `pretty-printing.lp` works with all encodings of judgment aggregation problems.
+
 ### Winner determination
 
 #### Rules with standard encodings
