@@ -3,7 +3,7 @@ Encodings of Judgment Aggregation (JA) problems into Answer Set Programming (ASP
 
 For more details on Judgment Aggregation,
 we refer to the literature, e.g.:
-> Endriss, U. [*Judgment Aggregation*](https://staff.fnwi.uva.nl/u.endriss/pubs/files/EndrissHBCOMSOC2016.pdf). In: F. Brandt, V. Conitzer, U. Endriss, J. Lang, and A. D. Procaccia, editors, *Handbook of Computational Social Choice*, Cambridge University Press, 2016.
+> Endriss, U. [*Judgment Aggregation*](https://staff.fnwi.uva.nl/u.endriss/pubs/files/EndrissHBCOMSOC2016.pdf). In: F. Brandt, V. Conitzer, U. Endriss, J. Lang, and A. D. Procaccia, editors, [*Handbook of Computational Social Choice*](http://procaccia.info/papers/comsoc.pdf), Cambridge University Press, 2016.
 
 ## Table of contents
 
