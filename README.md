@@ -109,7 +109,7 @@ windet/ra.lp
 
 General use:
 ```
-clingo windet/RULE-opt.lp PROFILE.lp -n 0
+clingo windet/RULE.lp PROFILE.lp -n 0
 ```
 Example:
 ```
