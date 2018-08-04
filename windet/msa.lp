@@ -11,11 +11,11 @@ maj(X) :- ilit(X), pc(X,N), pc(-X,M), N > M.
 majagree(X) :- maj(X), js(col,X).
 % use the technique of saturation (see Eiter & Gottlob '95)
 w :- not w.
-virtual(X) :- lit(X), w.
+virtual(X) :- ilit(X), w.
 % guess a virtual assignment
-virtual(X) ; virtual(-X) :- issue(X).
+virtual(X) ; virtual(-X) :- var(X).
 % remove virtual assignments that are contradictory
-w :- issue(X), virtual(X), virtual(-X).
+w :- var(X), virtual(X), virtual(-X).
 % remove virtual assignments that don't satisfy integrity constraint
 w :- clause(C), virtual(-L) : clause(C,L).
 % mark which issues in virtual assignment agree with collective outcome

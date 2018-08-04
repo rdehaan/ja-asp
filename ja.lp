@@ -17,6 +17,9 @@ var(X) :- aux(X).
 numissues(N) :- N = #count { Z : issue(Z) }.
 issuenum(1..N) :- numissues(N).
 
+numilits(N) :- N = #count { Z : ilit(Z) }.
+ilitnum(1..N) :- numilits(N).
+
 numlits(N) :- N = #count { Z : lit(Z) }.
 litnum(1..N) :- numlits(N).
 
