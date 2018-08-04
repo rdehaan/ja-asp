@@ -57,7 +57,7 @@ Here `i` is the unique identifier of the clause (e.g., its number).
 E.g., `clause(1,(p;-q;-r)).`
 
 Example:
-```prolog
+```
 issue(i1;i2;i3;i4;i5).
 clause(1,(i3;-i4)).
 clause(2,(-i3;i4;-i1)).
@@ -75,7 +75,7 @@ add the voters judgment on this issue:
 `js(v,p).` or `js(v,-p).`
 
 Example:
-```prolog
+```
 voter(1..17).
 js(1..6,(i1;i2;i3;i4;i5)).
 js(7..10,(i1;i2;-i3;-i4;i5)).
