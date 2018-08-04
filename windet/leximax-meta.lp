@@ -10,5 +10,7 @@ pc(X,N) :- lit(X), N = #count { A : voter(A), js(A,X) }.
 % for each literal X, agreeing with X is prioritized on level N,
 % where N is the support for X
 % (higher levels have more priority)
-#minimize { 1@N,pc(X,N) : pc(X,N), js(col,-X) }.
-%:~ pc(X,N), js(col,-X). [N@1,pc(X,N)] % alternative way of writing the maximization
+_criteria(N,1,pc(X,N)) :- pc(X,N), js(col,-X).
+_optimize(N,1,card) :- pc(X,N).
+#show _criteria/3.
+#show _optimize/3.
