@@ -172,6 +172,7 @@ windet/kemeny-meta.lp
 windet/msa-meta.lp
 windet/reversal-meta.lp
 windet/slater-meta.lp
+windet/young-meta.lp
 ```
 
 General use:
