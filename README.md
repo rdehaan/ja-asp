@@ -47,6 +47,10 @@ For more details on answer set programming,
 we refer to the literature, e.g.:
 > Gebser, M., Kaminski, R., Kaufmann, B. and Schaub, T. [*Answer set solving in practice*](https://www.morganclaypool.com/doi/abs/10.2200/S00457ED1V01Y201211AIM019). Synthesis Lectures on Artificial Intelligence and Machine Learning, 6(3), pp. 1-238, 2012.
 
+For various encodings and examples, we use
+pottasco's [metasp](https://potassco.org/labs/metasp/) encodings,
+that employ the technique of meta-programming.
+
 ### Encoding
 
 #### Agendas
@@ -74,7 +78,7 @@ For each voter `v`, add a fact `voter(v).`
 e.g., `voter(v1;v2).` or `voter(1..10).`)
 
 For each voter `v` and each issue `p`,
-add the voters judgment on this issue:
+add the voter's judgment on this issue:
 `js(v,p).` or `js(v,-p).`
 
 Example:
