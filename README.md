@@ -9,10 +9,10 @@ we refer to the literature, e.g.:
 
 - [Getting started](#getting-started)
 - [Use](#use)
- - [Encoding](#encoding)
- - [Generating all consistent judgment sets](#generating-all-consistent-judgment-sets)
- - [Winner determination](#winner-determination)
- - [Checking agenda properties](#checking-agenda-properties)
+  - [Encoding](#encoding)
+  - [Generating all consistent judgment sets](#generating-all-consistent-judgment-sets)
+  - [Winner determination](#winner-determination)
+  - [Checking agenda properties](#checking-agenda-properties)
 
 ## Getting Started
 
