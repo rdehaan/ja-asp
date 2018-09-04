@@ -148,7 +148,7 @@ clingo windet/RULE.lp PROFILE.lp -Wno-atom-undefined --project -n0
 ```
 Example:
 ```
-clingo windet/msa.lp examples/profiles/profile1.lp -Wno-atom-undefined  --project -n0
+clingo windet/msa.lp examples/profiles/profile1.lp -Wno-atom-undefined --project -n0
 ```
 
 <!---Another example, invoking meta-programming:
@@ -290,6 +290,49 @@ Another example, invoking meta-programming:
 clingo agenda-properties/overlapping-separation.lp examples/profiles/profile1.lp -Wno-atom-undefined --pre | reify | clingo - meta.lp metaD.lp metaO.lp -Wno-atom-undefined --project -n0
 ```
 --->
+
+#### Single-crossedness
+
+General use (replace `PROFILE`):
+```
+clingo agenda-properties/single-crossing.lp PROFILE.lp -Wno-atom-undefined --project -n0
+```
+Example:
+```
+clingo agenda-properties/single-crossing.lp examples/profiles/profile0.lp -Wno-atom-undefined --project -n0
+```
+
+#### Nearly single-crossedness
+
+Three types of nearly single-crossedness are implemented:
+1. Single-crossedness after deleting a minimal number of voters
+  - `agenda-properties/nearly-single-crossing1-*.lp`
+2. Single-crossedness after deleting a minimal number of issues
+  - `agenda-properties/nearly-single-crossing2-*.lp`
+3. Single-crossedness after deleting a inclusion-minimal set of issues
+  - `agenda-properties/nearly-single-crossing3-meta.lp`
+
+Both optimization encodings (indicated with the suffix `-opt`)
+and meta-programming encodings (indicated with the suffix `-meta`)
+are available.
+
+General use for **optimization encodings** (replace `PROFILE` and `*`):
+```
+clingo agenda-properties/nearly-single-crossing*-opt.lp PROFILE.lp -Wno-atom-undefined --project --opt-mode=optN -q1
+```
+Example:
+```
+clingo agenda-properties/nearly-single-crossing1-opt.lp examples/profiles/profile7.lp -Wno-atom-undefined --project --opt-mode=optN -q1
+```
+
+General use for **meta-programming encodings** (replace `PROFILE` and `*`):
+```
+clingo agenda-properties/nearly-single-crossing*-meta.lp PROFILE.lp -Wno-atom-undefined --pre | reify | clingo - meta.lp metaD.lp metaO.lp -Wno-atom-undefined --project -n0
+```
+Example:
+```
+clingo agenda-properties/nearly-single-crossing3-meta.lp examples/profiles/profile7.lp -Wno-atom-undefined --pre | reify | clingo - meta.lp metaD.lp metaO.lp -Wno-atom-undefined --project -n0
+```
 
 #### Total blockedness / path connectedness
 
