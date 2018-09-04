@@ -293,7 +293,11 @@ clingo agenda-properties/overlapping-separation.lp examples/profiles/profile1.lp
 
 #### Total blockedness / path connectedness
 
+TBA
+
 #### Even negatability
+
+TBA
 
 ## Acknowledgments
 
