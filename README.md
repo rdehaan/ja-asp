@@ -291,6 +291,14 @@ clingo agenda-properties/overlapping-separation.lp examples/profiles/profile1.lp
 ```
 --->
 
+#### Total blockedness / path connectedness
+
+TBA
+
+#### Even negatability
+
+TBA
+
 ### Checking profile properties
 
 #### Single-crossedness
@@ -335,14 +343,6 @@ Example:
 ```
 clingo profile-properties/near-unidimensional-alignment3-meta.lp examples/profiles/profile7.lp -Wno-atom-undefined --pre | reify | clingo - meta.lp metaD.lp metaO.lp -Wno-atom-undefined --project -n0
 ```
-
-#### Total blockedness / path connectedness
-
-TBA
-
-#### Even negatability
-
-TBA
 
 ## Acknowledgments
 
