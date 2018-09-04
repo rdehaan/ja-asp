@@ -291,6 +291,8 @@ clingo agenda-properties/overlapping-separation.lp examples/profiles/profile1.lp
 ```
 --->
 
+### Checking profile properties
+
 #### Single-crossedness
 
 General use (replace `PROFILE`):
