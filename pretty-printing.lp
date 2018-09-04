@@ -9,7 +9,7 @@ import clingo
 def main(prg):
 
     # removes the first character of a string if this is a '-'
-    def removeTrailingNeg(str):
+    def removeLeadingNeg(str):
         if str[0] == '-':
             return str[1:];
         else:
@@ -31,6 +31,9 @@ def main(prg):
         assigns = [];
         iparts1 = [];
         iparts2 = [];
+        ins = [];
+        singcrosses = [];
+        orders = [];
         for atom in m.symbols(shown=True):
             atomstr = str(atom);
             if atomstr[:8] == "judgment":
@@ -39,15 +42,30 @@ def main(prg):
                 collectives += [atomstr[11:-1]];
             if atomstr[:6] == "assign":
                 assigns += [atomstr[7:-1]];
-            if atomstr[:8] == "ipart(1,":
-                iparts1 += [atomstr[9:-1]];
-            if atomstr[:8] == "ipart(2,":
-                iparts2 += [atomstr[9:-1]];
-        judgments.sort(key=removeTrailingNeg);
-        collectives.sort(key=removeTrailingNeg);
-        assigns.sort(key=removeTrailingNeg);
-        iparts1.sort(key=removeTrailingNeg);
-        iparts2.sort(key=removeTrailingNeg);
+            if atomstr[:7] == "ipart(1":
+                iparts1 += [atomstr[8:-1]];
+            if atomstr[:7] == "ipart(2":
+                iparts2 += [atomstr[8:-1]];
+            if atomstr[:2] == "in":
+                ins += [atomstr[3:-1]];
+            if atomstr[:9] == "singcross":
+                singcrosses += [atomstr[10:-1]];
+            if atomstr[:5] == "order":
+                orders += [atomstr[6:-1]];
+        judgments.sort(key=removeLeadingNeg);
+        collectives.sort(key=removeLeadingNeg);
+        assigns.sort(key=removeLeadingNeg);
+        iparts1.sort(key=removeLeadingNeg);
+        iparts2.sort(key=removeLeadingNeg);
+
+        # sort the list of orders
+        orderdict = dict();
+        for order in orders:
+            orderlist = order.split(',');
+            orderdict[orderlist[1]] = orderlist[0];
+        sortedorder = [];
+        for key in sorted(orderdict.iterkeys()):
+            sortedorder.append(orderdict[key]);
 
         # check if the encoding is an optimization version
         optimization = False;
@@ -56,16 +74,22 @@ def main(prg):
                 optimization = True;
 
         # use the generated lists to create output in set notation
-        if judgments != []:
-            print("Judgment set: { " + ', '.join(map(addSpaceIfNoNeg,judgments)) + " }");
-        if collectives != []:
-            # if we're dealing with an optimization encoding, only print optimal models
-            if (optimization == False) | (m.optimality_proven == True):
-                print("Collective outcome: { " + ', '.join(map(addSpaceIfNoNeg,collectives)) + " }");
-        if assigns != []:
-            print("Minimally inconsistent assignment: { " + ', '.join(map(addSpaceIfNoNeg,assigns)) + " }");
-        if iparts1 != []:
-            print("Separation: { " + ', '.join(map(addSpaceIfNoNeg,iparts1)) + " }, { " + ', '.join(map(addSpaceIfNoNeg,iparts2)) + " }");
+        # if we're dealing with an optimization encoding, only print for optimal models
+        if (optimization == False) | (m.optimality_proven == True):
+          if judgments != []:
+              print("Judgment set: { " + ', '.join(map(addSpaceIfNoNeg,judgments)) + " }");
+          if collectives != []:
+              print("Collective outcome: { " + ', '.join(map(addSpaceIfNoNeg,collectives)) + " }");
+          if assigns != []:
+              print("Minimally inconsistent assignment: { " + ', '.join(map(addSpaceIfNoNeg,assigns)) + " }");
+          if iparts1 != []:
+              print("Separation: { " + ', '.join(map(addSpaceIfNoNeg,iparts1)) + " }, { " + ', '.join(map(addSpaceIfNoNeg,iparts2)) + " }");
+          if ins != []:
+              print("Selected voters: { " + ', '.join(ins) + " }");
+          if singcrosses != []:
+              print("Single-crossed issues: { " + ', '.join(singcrosses) + " }");
+          if orders != []:
+              print("Order of voters: " + ', '.join(sortedorder) + ".")
 
     # solve the given answer set program
     prg.ground([("base", [])])
