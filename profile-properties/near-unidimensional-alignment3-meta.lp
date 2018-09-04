@@ -1,6 +1,6 @@
 %%%
-%%% NEARLY SINGLE-CROSSEDNESS:
-%%% maximizing the number of issues for which the profile is single crossed
+%%% NEAR UNIDIMENSIONAL ALIGNMENT:
+%%% finding inclusion-maximal subsets of issues for which the profile is unidimensionally aligned
 %%%
 
 #include "../ja.lp".
@@ -13,17 +13,17 @@ innum(N) :- voternum(N), numin(D), N <= D.
 1 { order(A,Y) : innum(Y) } 1 :- in(A).
 1 { order(A,Y) : in(A) } 1 :- innum(Y).
 % mark all issues that do not match single crossing property
-notsingcross(I) :- ilit(I),
+notunidim(I) :- ilit(I),
   js(A1,I), js(A2,-I), js(A3,I),
   order(A1,P1), order(A2,P2), order(A3,P3),
   P1 < P2, P2 < P3.
 % mark all literals that match single crossing property
-singcross(I) :- issue(I), not notsingcross(I), not notsingcross(-I).
-% minimize the number of issues that are not single crossing
-_criteria(0,1,notsingcross(I)) :- notsingcross(I).
-_optimize(0,1,card).
+unidim(I) :- issue(I), not notunidim(I), not notunidim(-I).
+% minimize the set of issues that are not single crossing
+_criteria(0,1,notunidim(I)) :- notunidim(I).
+_optimize(0,1,incl).
 #show _criteria/3.
 #show _optimize/3.
 
-#show singcross/1.
+#show unidim/1.
 #show order/2.

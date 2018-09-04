@@ -1,30 +1,22 @@
 %%%
-%%% NEARLY SINGLE-CROSSEDNESS:
-%%% maximizing the number of voters for which the corresponding subprofile is single crossed
+%%% UNIDIMENSIONAL ALIGNMENT
 %%%
 
 #include "../ja.lp".
 
-% guess a set of voters
-{ in(A) } :- voter(A).
-out(A) :- voter(A), not in(A).
+% select a set of voters (all voters)
+in(A) :- voter(A).
 % guess an ordering of the guessed set of voters
 numin(D) :- D = #count { in(A) : in(A) }.
 innum(N) :- voternum(N), numin(D), N <= D.
 1 { order(A,Y) : innum(Y) } 1 :- in(A).
 1 { order(A,Y) : in(A) } 1 :- innum(Y).
 % mark all issues that do not match single crossing property
-notsingcross(I) :- ilit(I),
+notunidim(I) :- ilit(I),
   js(A1,I), js(A2,-I), js(A3,I),
   order(A1,P1), order(A2,P2), order(A3,P3),
   P1 < P2, P2 < P3.
 % require that all issues are single crossing
-:- notsingcross(I).
-% maximize the number of voters selected
-_criteria(0,1,out(A)) :- out(A).
-_optimize(0,1,card).
-#show _criteria/3.
-#show _optimize/3.
+:- notunidim(I).
 
 #show order/2.
-#show in/1.

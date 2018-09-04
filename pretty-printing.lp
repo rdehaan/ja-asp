@@ -32,7 +32,7 @@ def main(prg):
         iparts1 = [];
         iparts2 = [];
         ins = [];
-        singcrosses = [];
+        unidims = [];
         orders = [];
         for atom in m.symbols(shown=True):
             atomstr = str(atom);
@@ -48,8 +48,8 @@ def main(prg):
                 iparts2 += [atomstr[8:-1]];
             if atomstr[:2] == "in":
                 ins += [atomstr[3:-1]];
-            if atomstr[:9] == "singcross":
-                singcrosses += [atomstr[10:-1]];
+            if atomstr[:6] == "unidim":
+                unidims += [atomstr[7:-1]];
             if atomstr[:5] == "order":
                 orders += [atomstr[6:-1]];
         judgments.sort(key=removeLeadingNeg);
@@ -86,8 +86,8 @@ def main(prg):
               print("Separation: { " + ', '.join(map(addSpaceIfNoNeg,iparts1)) + " }, { " + ', '.join(map(addSpaceIfNoNeg,iparts2)) + " }");
           if ins != []:
               print("Selected voters: { " + ', '.join(ins) + " }");
-          if singcrosses != []:
-              print("Single-crossed issues: { " + ', '.join(singcrosses) + " }");
+          if unidims != []:
+              print("Unidimensionally aligned issues: { " + ', '.join(unidims) + " }");
           if orders != []:
               print("Order of voters: " + ', '.join(sortedorder) + ".")
 
