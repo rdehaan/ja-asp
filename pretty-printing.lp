@@ -39,10 +39,10 @@ def main(prg):
                 collectives += [atomstr[11:-1]];
             if atomstr[:6] == "assign":
                 assigns += [atomstr[7:-1]];
-            if atomstr[:6] == "ipart1":
-                iparts1 += [atomstr[7:-1]];
-            if atomstr[:6] == "ipart2":
-                iparts2 += [atomstr[7:-1]];
+            if atomstr[:8] == "ipart(1,":
+                iparts1 += [atomstr[9:-1]];
+            if atomstr[:8] == "ipart(2,":
+                iparts2 += [atomstr[9:-1]];
         judgments.sort(key=removeTrailingNeg);
         collectives.sort(key=removeTrailingNeg);
         assigns.sort(key=removeTrailingNeg);

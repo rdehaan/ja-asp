@@ -7,39 +7,30 @@
 % generate an overlapping decomposition
 % (where none of the partitioning sets are empty)
 % (and none of the partitioning sets includes the other)
-{ ipart1(X) } :- issue(X).
-{ ipart2(X) } :- issue(X).
-part1(X) :- issue(X), ipart1(X).
-part2(X) :- issue(X), ipart2(X).
-part1(-X) :- issue(X), ipart1(X).
-part2(-X) :- issue(X), ipart2(X).
-:- issue(X), not ipart1(X), not ipart2(X).
-:- ipart1(X) : issue(X), ipart2(X).
-:- ipart2(X) : issue(X), ipart1(X).
-:- not ipart1(X) : issue(X).
-:- not ipart2(X) : issue(X).
-#show ipart1/1.
-#show ipart2/1.
+side(1;2).
+{ ipart(S,X) } :- issue(X), side(S).
+part(S,X) :- issue(X), ipart(S,X), side(S).
+part(S,-X) :- issue(X), ipart(S,X), side(S).
+:- issue(X), not ipart(1,X), not ipart(2,X).
+:- ipart(1,X) : issue(X), ipart(2,X).
+:- ipart(2,X) : issue(X), ipart(1,X).
+:- side(S), not ipart(S,X) : issue(X).
+#show ipart/2.
 % verify that this overlapping decomposition separates the agenda,
 % using saturation (see Eiter, Gottlob '95)
 w :- not w.
-virtual1(X) :- lit(X), w.
-virtual2(X) :- lit(X), w.
+virtual(S,X) :- lit(X), w, side(S).
 % guess a virtual assignment
-virtual1(X) ; virtual1(-X) :- var(X).
-virtual2(X) ; virtual2(-X) :- var(X).
+virtual(S,X) ; virtual(S,-X) :- var(X), side(S).
 % remove virtual assignments that are contradictory
-w :- var(X), virtual1(X), virtual1(-X).
-w :- var(X), virtual2(X), virtual2(-X).
+w :- var(X), virtual(S,X), virtual(S,-X), side(S).
 % remove virtual assignments that do not satisfy the integrity constraint
-w :- clause(C), virtual1(-L) : clause(C,L).
-w :- clause(C), virtual2(-L) : clause(C,L).
+w :- side(S), clause(C), virtual(S,-L) : clause(C,L).
 % remove virtual assignments that disagree on those issues that are
 % in both parts of the overlapping decomposition
-w :- lit(X), part1(X), part2(X), virtual1(X), virtual2(-X).
+w :- lit(X), part(1,X), part(2,X), virtual(1,X), virtual(2,-X).
 % remove virtual assignments whose combination (according to the guessed decomposition)
 % *does* satisfy the integrity constraint
-w(C) :- clause(C,L), part1(L), virtual1(L).
-w(C) :- clause(C,L), part2(L), virtual2(L).
+w(C) :- clause(C,L), part(S,L), virtual(S,L), side(S).
 w :- w(C) : clause(C).
 w(C) :- w, clause(C).
