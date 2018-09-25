@@ -24,12 +24,12 @@ js(18..23,(k1;k2;k3;k4;k5)).
 js(24..27,(k1;k2;-k3;-k4;k5)).
 js(28..34,(-k1;-k2;k3;-k4;-k5)).
 % integrity constraint
-clause(1,(i3;i4)).
+clause(1,(i3;-i4)).
 clause(2,(-i3;i4;-i1)).
 clause(3,(-i3;i4;-i2)).
-clause(4,(j3;j4)).
+clause(4,(j3;-j4)).
 clause(5,(-j3;j4;-j1)).
 clause(6,(-j3;j4;-j2)).
-clause(7,(k3;k4)).
+clause(7,(k3;-k4)).
 clause(8,(-k3;k4;-k1)).
 clause(9,(-k3;k4;-k2)).
