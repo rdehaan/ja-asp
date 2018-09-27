@@ -1,5 +1,5 @@
 %%%
-%%% MED = KEMENY
+%%% MED = KEMENY -- JS GRAPH VERSION
 %%%
 
 #include "windet.lp".
