@@ -220,6 +220,29 @@ Example:
 clingo windet/msa-meta.lp examples/profiles/profile1.lp -Wno-atom-undefined --pre | reify | clingo - meta.lp metaD.lp metaO.lp -Wno-atom-undefined --project -n0
 ```
 
+#### Rules with graph-based encodings
+
+The following encodings of judgment aggregation rules
+are based on the graph of all complete and consistent judgment sets.
+For these encodings,
+one needs to enumerate all answer sets to get all outcomes:
+
+```
+windet/kemeny1-graph.lp
+windet/kemeny2-graph.lp
+windet/slater-graph.lp
+```
+
+General use (replace `RULE` and `PROFILE`):
+```
+clingo windet/RULE-graph.lp PROFILE.lp -n0 -Wno-atom-undefined --project
+```
+
+Example:
+```
+clingo windet/kemeny1-graph.lp examples/profiles/profile1.lp -n0 -Wno-atom-undefined --project
+```
+
 ### Checking agenda properties
 
 #### Median property
