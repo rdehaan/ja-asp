@@ -23,6 +23,9 @@ ilitnum(1..N) :- numilits(N).
 numlits(N) :- N = #count { Z : lit(Z) }.
 litnum(1..N) :- numlits(N).
 
+numvars(N) :- N = #count { Z : var(Z) }.
+varnum(1..N) :- numvars(N).
+
 numvoters(N) :- N = #count { A : voter(A) }.
 voternum(1..N) :- numvoters(N).
 
