@@ -136,6 +136,7 @@ For the following encodings of judgment aggregation rules, one needs to enumerat
 all answer sets to get all outcomes:
 
 ```
+windet/kemeny.lp
 windet/kemeny1-graph.lp
 windet/kemeny2-graph.lp
 windet/majority.lp
